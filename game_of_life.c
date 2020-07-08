@@ -23,6 +23,12 @@ int check(char spot){
 }
 
 int main(int argc, char *argv[]) {
+  if (argc == 1){
+    printf("please type a number between 0-9 after program, e.g.\n");
+    printf("./game_of_life 3\n");
+    return 0;
+  }
+  else ;
   int x = 0, y = 10;
   int max_y = 0, max_x = 0;
   int next_x = 0;
