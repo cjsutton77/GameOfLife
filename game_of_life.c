@@ -22,13 +22,26 @@ int check(char spot){
   else return 0;
 }
 
+int n;
+int delay;
 int main(int argc, char *argv[]) {
+  printf("%d\n",argc);
   if (argc == 1){
-    printf("please type a number between 0-9 after program, e.g.\n");
-    printf("./game_of_life 3\n");
-    return 0;
+    n = 1;
+    delay = DELAY;
   }
-  else ;
+  else if (argc == 2){
+    n = atoi(argv[1]);
+    delay = DELAY;
+  }
+  else if (argc == 3){
+      n = atoi(argv[1]);
+      delay = atoi(argv[2]);
+  }
+  else {
+  ;
+  }
+
   int x = 0, y = 10;
   int max_y = 0, max_x = 0;
   int next_x = 0;
@@ -43,7 +56,6 @@ int main(int argc, char *argv[]) {
   
   char field[max_y][max_x];
   char field_next[max_y][max_x];
-  int n = atoi(argv[1]);
   for (int j = 0;j<max_y;j++){
     for (int i = 0;i<max_x;i++){
       field[j][i] = RandomNumberGenerator(0,9,1,n);
@@ -54,7 +66,7 @@ int main(int argc, char *argv[]) {
   mvprintw(11,10,"by Christian Johann Sutton");
   mvprintw(12,10,"christian.sutton@gmail.com");
   mvprintw(14,10,"\t\tPress control-c to stop");
-
+  mvprintw(16,10,"y: %d\t x: %d",max_y,max_x);
 
   getch();
   while(1) {
@@ -92,7 +104,7 @@ int main(int argc, char *argv[]) {
 
         }
       }
-      usleep(60000);
+      usleep(delay);
       for (int j = 0;j<max_y;j++){
         for (int i = 0;i<max_x;i++){
           field[j][i] = field_next[j][i];
