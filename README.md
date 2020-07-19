@@ -5,6 +5,7 @@ compile:
 gcc -lncurses -o game_of_life game_of_life.c
 
 run:
+
 ./game_of_life <------ (for default seeding and delay)
 
 ./game_of_life n <---- (for default delay and seeding of n (between 0-10))
