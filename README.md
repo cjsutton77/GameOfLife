@@ -3,7 +3,9 @@ A simple C implementation of Conway's Game of Life
 
 compile:
 gcc -lncurses -o game_of_life game_of_life.c
+
 or
+
 gcc -o game_of_life game_of_life.c -lncurses
 
 assumes:
